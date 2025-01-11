@@ -1,0 +1,102 @@
+
+<form (ngSubmit)="submitForm(f)" #f="ngForm">
+    <p>Registration Form</p>
+    <br/>
+    <br/>
+    <input type="text" 
+            name="username" 
+            placeholder="Enter Username" 
+            ngModel  #username="ngModel" 
+            (onchange)="getValue(username)" required
+            [class.ng-invalid]="username.invalid && username.touched"
+            minlength="3"
+            maxlength="10"
+            />
+    
+      @if(username.invalid && username.touched)
+      {
+        @if(username.hasError("required")){
+            <div class="alert">
+                <p>Please enter username...!</p>
+            </div>
+        }
+        @if(username.hasError("minlength")){
+            <div class="alert">
+                <p>Username must be atleast 3 characters long....!</p>
+            </div>
+        }  
+        @if(username.hasError("maxlength")){
+            <div class="alert">
+                <p>Username can not be 10 characters long....!</p>
+            </div>
+        }        
+      } 
+    <br/>
+    <br/>
+    <input type="text" 
+            name="email" 
+            placeholder="Enter Email"  
+            ngModel
+            #email="ngModel"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            [class.ng-invalid]="email.invalid && email.touched"
+            
+            />
+    @if(email.invalid && email.touched)
+    {
+        @if(email.hasError("required")){
+            <div class="alert">
+                <p>Please enter email...!</p>
+            </div>
+        }
+        @if(email.hasError("pattern")){
+            <div class="alert">
+                <p>Enter valid format of the email!</p>
+            </div>
+        }
+       
+    }
+
+    <br/>
+    <br/>
+    <textarea  name="address" 
+                placeholder="Enter Address" 
+                ngModel 
+                #address="ngModel"
+                required
+                [class.ng-invalid]="address.invalid && address.touched">
+    
+    </textarea>
+    @if(address.invalid && address.touched)
+    {
+      @if(address.hasError("required")){
+          <div class="alert">
+              <p>Please enter address...!</p>
+          </div>
+      }
+    }
+    <br/>
+    <br/>
+    <button [disabled]="f.invalid">Submit</button>
+</form>
+
+
+<!-- <form (submit)="submitForm($event)">
+    <p>Registration Form</p>
+    <br/>
+    <br/>
+    <input type="text" name="username" placeholder="Enter Username"/>
+
+    <br/>
+    <br/>
+    <input type="text" name="email" placeholder="Enter Email"/>
+
+    <br/>
+    <br/>
+    <input type="text" name="address" placeholder="Enter Address"/>
+    <br/>
+    <br/>
+    <button>Submit</button>
+</form> -->
+

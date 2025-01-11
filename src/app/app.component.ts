@@ -2,6 +2,7 @@ import { CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, LowerCasePipe, PercentPi
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PostListComponent } from './post-list/post-list.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { PostListComponent } from './post-list/post-list.component';
     DatePipe,
     JsonPipe,
     SlicePipe,
-    PostListComponent
+    PostListComponent,
+    RegistrationFormComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

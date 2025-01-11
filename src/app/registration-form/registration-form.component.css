@@ -1,0 +1,14 @@
+.form-contro{
+    margin: auto;
+    width: 250px;
+}
+.alert{
+    color: red;
+}
+
+input.ng-invalid{
+    border: red solid 1px;
+}
+textarea.ng-invalid{
+    border: red solid 1px;
+}
